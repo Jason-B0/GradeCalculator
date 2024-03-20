@@ -1,0 +1,11 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  input, button {
+    margin: 5px;
+  }
+
+  input[type="text"], input[type="number"], select {
+    width: 100px;
+  }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade Calculator</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Grade Calculator</h1>
+  <div id="grades">
+    <!-- Grades will be displayed here -->
+  </div>
+  <div>
+    <input type="text" id="itemName" placeholder="Item Name">
+    <label for="itemType">Item Type:</label>
+    <select id="itemType">
+      <option value="homework">Homework</option>
+      <option value="quiz">Quiz</option>
+      <option value="test">Test</option>
+      <option value="midterm">Midterm</option>
+      <option value="final">Final</option>
+      <!-- Add more item types as needed -->
+    </select>
+    <input type="number" id="itemMark" placeholder="Mark">
+    <input type="number" id="itemWeight" placeholder="Weight" min="0">
+    <label><input type="checkbox" id="dropItem"> Drop Item</label>
+    <button onclick="addItem()">Add Item</button>
+  </div>
+  <div id="average"></div>
+  <script src="script.js"></script>
+</body>
+</html>
