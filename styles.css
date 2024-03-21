@@ -1,11 +1,59 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #f2f2f2; /* Light gray background */
+    margin: 0;
+    padding: 0;
   }
   
-  input, button {
-    margin: 5px;
+header {
+    background-color: #4CAF50; /* Green header */
+    color: white;
+    text-align: center;
+    padding: 20px 0; /* Add some padding to the top and bottom */
   }
 
-  input[type="text"], input[type="number"], select {
-    width: 100px;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px; /* Adjust the margin as needed */
+  }
+
+.input-container {
+    background-color: #fff; /* White background for input container */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+    margin-bottom: 20px; /* Add some space between input container and average */
+  }
+
+input, select, button {
+    margin: 5px;
+    padding: 8px;
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 3px; /* Rounded corners */
+  }
+
+input[type="text"], input[type="number"], select {
+    width: 150px; /* Adjust input width */
+  }
+
+button {
+    background-color: #4CAF50; /* Green button */
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+
+#grades, #average {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
   }
