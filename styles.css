@@ -6,7 +6,7 @@ body {
   }
   
 header {
-    background-color: #4CAF50; /* Green header */
+    background-color: #4473a2; /* Green header */
     color: white;
     text-align: center;
     padding: 20px 0; /* Add some padding to the top and bottom */
@@ -40,7 +40,7 @@ input[type="text"], input[type="number"], select {
   }
 
 button {
-    background-color: #4CAF50; /* Green button */
+    background-color: #4473a2; /* Green button */
     color: white;
     border: none;
     cursor: pointer;
