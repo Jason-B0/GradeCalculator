@@ -1,11 +1,227 @@
+/* General styles */
 body {
-    font-family: Arial, sans-serif;
-  }
-  
-  input, button {
-    margin: 5px;
+  font-family: Arial, sans-serif;
+}
+
+input,
+button {
+  margin: 5px;
+}
+
+/* Header styles */
+.header {
+  width: 100%;
+  border-bottom: 5px solid #FFD400;
+}
+
+.header img {
+  max-width: 10%;
+  margin-left: 7.56%;
+}
+
+/* Main content styles */
+.main {
+  margin-left: 7.56%;
+}
+
+.main h1 {
+  font-size: 28px;
+}
+
+.main h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.main p {
+  margin-bottom: 20px;
+}
+
+.main-box {
+  display: flex;
+  justify-content: center;
+  /* This centers the child element horizontally */
+  margin: 0 auto;
+  /* This centers the .main-box itself if it doesn't take full width */
+  padding: 20px;
+  width: 100%;
+
+}
+
+/* Grade category styles */
+.grade-category {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  flex-basis: auto;
+  max-width: 600px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(12, 12, 12);
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 10px;
+
+}
+
+.dropdown-arrow {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.category-content {
+  display: block;
+  width: 100%;
+}
+
+.category-body {
+  background-color: #f2f2f2;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.input-item-name,
+.input-item-grade {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 5px;
+  margin-right: 10px;
+  flex: 1;
+}
+
+/* Switch (checkbox) styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked+.slider {
+  background-color: #fbbd08;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #fbbd08;
+}
+
+input:checked+.slider:before {
+  transform: translateX(26px);
+}
+
+/* Button styles */
+.btn-add-item,
+.btn-add-category {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: block;
+  margin: 20px auto;
+}
+
+.btn-add-item:hover,
+.btn-add-category:hover {
+  background-color: #444;
+}
+
+/* Current grade section styles */
+.current-grade {
+  background-color: #eeeeee;
+  padding: 10px;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.current-grade input {
+  margin-top: 10px;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+
+  .category-body,
+  .add-item,
+  .btn-add-item {
+    flex-direction: column;
+    width: 100%;
+
   }
 
-  input[type="text"], input[type="number"], select {
-    width: 100px;
+  .input-item-name,
+  .input-item-grade {
+    width: auto;
   }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  /* This will place the child elements on opposite ends */
+  align-items: flex-start;
+  /* This aligns items to the top */
+  padding: 10px 0;
+}
+
+.grade {
+  display: flex;
+  justify-content: center;
+  /* This centers the child element horizontally */
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
+}
