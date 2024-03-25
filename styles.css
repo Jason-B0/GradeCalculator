@@ -50,7 +50,7 @@ button:hover {
     background-color: #45a049; /* Darker green on hover */
   }
 
-#grades, #average {
+#grades, #average, #overallAverage {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
