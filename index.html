@@ -6,7 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grade Calculator</title>
   <link rel="stylesheet" href="styles.css">
+<<<<<<< HEAD
   <script src="script.js"></script>
+=======
+>>>>>>> origin/Backend-NH
 </head>
 
 <body>
@@ -14,6 +17,7 @@
     <div class="logo">
       <img src="./images/logo.png" alt="logo">
     </div>
+<<<<<<< HEAD
   </div>
   <div class="main">
     <div class="heading">
@@ -59,6 +63,72 @@
   </div>
   <div>
     <button class="btn-add-category" onclick="addCategory()">+ ADD CATEGORY</button>
+=======
+  </div>
+  <div class="main">
+    <div class="heading">
+      <h1>Dalhousie Course Grade Calculator</h1>
+    </div>
+    <div>
+      <p>The Dalhousie Course Grade Calculator is a user-friendly web tool designed to assist students in calculating
+        their course grades quickly and accurately. With intuitive input fields for item names, types, marks, and
+        weights, users can easily add and manage their course components. The calculator provides real-time updates on
+        the current grade based on user inputs, empowering students to monitor their academic progress effectively.
+        Whether preparing for upcoming assessments or tracking overall performance, this calculator streamlines the
+        grade calculation process, helping students make informed decisions to achieve their academic goals.</p>
+        <br><br>
+    </div>
+    <div class="main-box">
+      <!-- Category section -->
+      <div class="category" id="category-template">
+        <h3 class="category-title">Category Title</h3>
+        <div>
+          <input type="text" id="itemName" placeholder="Item Name">
+          <label for="itemType">Item Type:</label>
+          <select id="itemType">
+            <option value="homework">Homework</option>
+            <option value="quiz">Quiz</option>
+            <option value="test">Test</option>
+            <option value="midterm">Midterm</option>
+            <option value="final">Final</option>
+            <!-- Add more item types as needed -->
+          </select>
+          <input type="number" id="itemMark" placeholder="Mark">
+          <input type="number" id="itemWeight" placeholder="Weight" min="0">
+          <label><input type="checkbox" id="dropItem"> Drop Item</label>
+          <button onclick="addItem()">Add Item</button>
+        </div>
+      </div>
+    </div>
+    <div id="grades">
+      <!-- Grades will be displayed here -->
+    </div>
+    <div class="current-grade">
+      <h3>Current Grade</h3>
+      <input type="number" id="desiredGrade" placeholder="Desired Grade">
+      <button id="calculateGrade">Calculate</button>
+      <!-- Display the calculated grade -->
+      <div id="calculatedResult"></div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+  <div class="main-box">
+
+    <div class="calc">
+
+    </div>
+    <div class="grade">
+      <h1>Grading Scale</h1>
+      <img src="./images/grade.webp" alt="grade">
+    </div>
+  </div>
+
+>>>>>>> origin/Backend-NH
   </div>
 
   <div class="current-grade">
@@ -81,4 +151,8 @@
     <div id="average"></div>
     <script src="script.js"></script>
 </body>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/Backend-NH
 </html>
