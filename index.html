@@ -1,41 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dalhousie University</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade Calculator</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <header>
-    <h1>Dalhousie Course Grade Calculator</h1>
-  </header>
-  <div class="container">
+  <div class="header">
+    <div class="logo">
+      <img src="./images/logo.png" alt="logo">
+    </div>
+  </div>
+  <div class="main">
+    <div class="heading">
+      <h1>Course Grade Calculator</h1>
+      <h3>What is the use of the calculator?</h3>
+    </div>
+    <div>
+      <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa libero, nisi laboriosam dolores
+        facere consequatur odio modi quas maxime harum vitae, magnam repudiandae reprehenderit expedita sequi explicabo
+        iusto! Magni, harum.</p>
+    </div>
+    <h1>Grade Calculator</h1>
+    <div class="main-box">
+      <!-- Category section -->
+      <div class="category" id="category-template">
+        <h3 class="category-title">Category Title</h3>
+        <div>
+          <input type="text" id="itemName" placeholder="Item Name">
+          <label for="itemType">Item Type:</label>
+          <select id="itemType">
+            <option value="homework">Homework</option>
+            <option value="quiz">Quiz</option>
+            <option value="test">Test</option>
+            <option value="midterm">Midterm</option>
+            <option value="final">Final</option>
+            <!-- Add more item types as needed -->
+          </select>
+          <input type="number" id="itemMark" placeholder="Mark">
+          <input type="number" id="itemWeight" placeholder="Weight" min="0">
+          <label><input type="checkbox" id="dropItem"> Drop Item</label>
+          <button onclick="addItem()">Add Item</button>
+        </div>
+      </div>
+    </div>
     <div id="grades">
       <!-- Grades will be displayed here -->
     </div>
-    <div class="input-container">
-      <input type="text" id="itemName" placeholder="Item Name">
-      <label for="itemType">Item Type:</label>
-      <select id="itemType">
-        <option value="assignment">Assignment</option>
-        <option value="lab">Lab</option>
-        <option value="quiz">Quiz</option>
-        <option value="test">Test</option>
-        <option value="midterm">Midterm</option>
-        <option value="final">Final</option>
-        <!-- Add more item types as needed -->
-      </select>
-      <input type="number" id="itemMark" placeholder="Mark">
-      <input type="number" id="itemWeight" placeholder="Weight" min="0">
-      <label><input type="checkbox" id="dropItem"> Drop Item</label>
-      <button onclick="addItem()">Add Item</button>
+    <div class="current-grade">
+      <h3>Current Grade</h3>
+      <input type="number" id="desiredGrade" placeholder="Desired Grade">
+      <button id="calculateGrade">Calculate</button>
+      <!-- Display the calculated grade -->
+      <div id="calculatedResult"></div>
     </div>
-    <div id="average"></div>
-    <div id="overallAverage"></div>
   </div>
-  
-  
+  </div>
+
+
+
+
+
+  <div class="main-box">
+
+    <div class="calc">
+
+    </div>
+    <div class="grade">
+      <img src="./images/grade.webp" alt="grade">
+    </div>
+  </div>
+
+  </div>
+  <div id="average"></div>
   <script src="script.js"></script>
 </body>
+
 </html>

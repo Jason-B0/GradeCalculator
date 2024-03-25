@@ -22,7 +22,7 @@ describe('Test script.js', function () {
         app.__set__('grades', {});
     });
 
-    it('addItem should add an item to the grades object', function () {
+    it('should add an item to the grades object', function () {
         document.getElementById = id => ({
             value: id === 'itemName' ? 'Test' : 'homework',
             checked: false
@@ -32,7 +32,7 @@ describe('Test script.js', function () {
         assert.deepStrictEqual(grades, { homework: [{ name: 'Test', mark: NaN, weight: NaN, dropped: false }] });
     });
 
-    it('displayGrades should display the grades', function () {
+    it('should display the grades', function () {
         app.__set__('grades', { homework: [{ name: 'Test', mark: 90, weight: 10, dropped: false }] });
         const gradesDiv = document.createElement('div');
         document.getElementById = () => gradesDiv;
@@ -40,7 +40,7 @@ describe('Test script.js', function () {
         assert.strictEqual(gradesDiv.innerHTML, '<div>homework:<div>Item: Test, Mark: 90, Weight: NaN%</div></div>');
     });
 
-    it('calculateAverage should calculate the average mark', function () {
+    it('should calculate the average mark', function () {
         app.__set__('grades', { homework: [{ name: 'Test', mark: 90, weight: 10, dropped: false }] });
         const averageDiv = document.createElement('div');
         document.getElementById = () => averageDiv;
@@ -48,7 +48,7 @@ describe('Test script.js', function () {
         assert.strictEqual(averageDiv.textContent, 'Average Mark: 90.00');
     });
 
-    it('deleteItem should delete an item from the grades object', function () {
+    it('should delete an item from the grades object', function () {
         app.__set__('grades', { homework: [{ name: 'Test', mark: 90, weight: 10, dropped: false }] });
         deleteItem('homework', 0);
         const grades = app.__get__('grades');
