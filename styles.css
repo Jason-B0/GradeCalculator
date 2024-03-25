@@ -1,132 +1,120 @@
+/* Global styles */
 body {
   font-family: Arial, sans-serif;
-}
-
-input,
-button {
-  margin: 5px;
-}
-
-input[type="text"],
-input[type="number"],
-select {
-  width: 100px;
-}
-
-.header img {
-  max-width: 10%;
-  margin-left: 7.56%;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4; /* Light gray background for the body */
 }
 
 .header {
-  border-bottom: 5px solid #FFD400;
-  width: 100%;
-}
-
-.main h1 {
-  margin-left: 7.56%;
-  font-size: 28px;
-}
-
-.main h3 {
-  font-size: 20px;
-  margin-left: 7.56%;
-  font-weight: 500;
-}
-
-.main p {
-  margin: 2% 7.56%;
-}
-
-.main-box {
-  margin: 5% 7.56%;
-  display: flex;
-}
-
-
-category {
-  background-color: #cccccc;
-  /* Placeholder color */
-  border: 1pt solid #000000;
-  border-radius: 5pt;
-  margin-bottom: 20px;
-  padding: 10px;
-  width: calc(33% - 40px);
-  /* Adjust width for 3 columns */
-}
-
-.item-add {
-  display: flex;
-  align-items: center;
-}
-
-.add-item-btn {
-  background-color: #4CAF50;
-  /* Example button color */
-  border: none;
-  color: white;
-  padding: 10px;
+  background-color: white; /* Dark blue background for the header */
+  color: #ffffff; /* White text color for the header */
+  padding: 20px;
   text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
 }
 
-.grade-definition,
-.current-grade {
-  background-color: #eeeeee;
-  /* Placeholder color */
-  border: 1pt solid #000000;
-  border-radius: 5pt;
+.header img {
+  max-width: 100%;
+  height: auto;
+}
+
+.main {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+}
+
+.heading {
+  text-align: center;
   margin-bottom: 20px;
-  padding: 10px;
-  width: calc(66% - 40px);
-  /* Adjust width for column layout */
 }
 
-.grade-definition table {
+.heading h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.heading h3 {
+  font-size: 18px;
+  color: #555555; /* Dark gray text color for subheadings */
+}
+
+.description {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #666666; /* Slightly darker gray text color for description */
+}
+
+.category {
+  background-color: #ffffff; /* White background for category section */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  padding: 20px;
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+  max-width: 400px; /* Limit width for better readability */
+  margin-bottom: 20px;
 }
 
-.grade-definition th,
-.grade-definition td {
-  border: 1px solid #000000;
-  padding: 8px;
-  text-align: left;
+.category-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333333; /* Dark text color for category titles */
 }
 
-.current-grade input {
-  display: block;
-  margin-top: 10px;
+.category input[type="text"],
+.category input[type="number"],
+.category select {
+  width: calc(100% - 20px); /* Adjust width to fit container */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #cccccc; /* Light gray border */
+  border-radius: 5px;
 }
 
-#calculateGrade {
-  background-color: #4CAF50;
-  /* Placeholder color */
-  border: none;
-  color: white;
+.category input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.category button {
   padding: 10px 20px;
-  margin-top: 10px;
+  background-color: #1e88e5; /* Dark blue button color */
+  color: #ffffff; /* White text color for buttons */
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-/* Responsive design adjustments */
-@media (max-width: 768px) {
+.category button:hover {
+  background-color: #005cb2; /* Darker blue on hover */
+}
 
-  .main-box,
-  .category,
-  .grade-definition,
-  .current-grade {
-    width: 100%;
-  }
+.current-grade {
+  text-align: center;
+}
 
-  .category,
-  .grade-definition,
-  .current-grade {
-    margin-bottom: 10px;
-  }
+.current-grade input[type="number"] {
+  width: calc(100% - 20px); /* Adjust width to fit container */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #cccccc; /* Light gray border */
+  border-radius: 5px;
+}
+
+.current-grade button {
+  padding: 10px 20px;
+  background-color: #1e88e5; /* Dark blue button color */
+  color: #ffffff; /* White text color for buttons */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.current-grade button:hover {
+  background-color: #005cb2; /* Darker blue on hover */
+}
+
+.grade img {
+  width: 500px; /* Adjust the width value as needed */
 }
