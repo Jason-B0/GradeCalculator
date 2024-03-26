@@ -8,7 +8,6 @@ function addItem() {
   const itemMark = parseFloat(document.getElementById('itemMark').value);
   const itemWeight = parseFloat(document.getElementById('itemWeight').value);
 
-<<<<<<< HEAD
   if (itemMark > 100) {
     alert('Max mark is 100');
     document.getElementById('itemMark').value = '';
@@ -28,51 +27,16 @@ function addItem() {
   } else {
     alert('Please fill in all fields correctly.');
   }
-=======
-    
-
-    if(itemMark > 100) {
-      alert('Max mark is 100');
-      document.getElementById('itemMark').value = '';
-      document.getElementById('itemName').value = '';
-      document.getElementById('itemType').value = 'assignment';
-      document.getElementById('itemWeight').value = '';
-      return;
-    }
-
-  
-
-    if(itemName && itemType && itemWeight){
-      if(!grades[itemType]) {
-          grades[itemType] = [];
-      }
-    } else {
-      alert('Please fill in all fields correctly.');
-      return;
-    }
-
-    grades[itemType].push({ name: itemName, mark: itemMark, weight: itemWeight, dropped: dropItem});
-    displayGrades();
-    calculateAverage();
-    calculateAverageWithWeights();
->>>>>>> origin/Backend-NH
 }
 
 function displayGrades() {
   const gradesDiv = document.getElementById('grades');
   gradesDiv.innerHTML = '';
   for (const itemType in grades) {
-<<<<<<< HEAD
     if (grades.hasOwnProperty(itemType)) {
       if (grades[itemType].length == 0) {
         continue;
       }
-=======
-      if (grades.hasOwnProperty(itemType)) {
-          if(grades[itemType].length == 0) {
-            continue;
-          }
->>>>>>> origin/Backend-NH
       const itemTypeDiv = document.createElement('div');
       itemTypeDiv.textContent = `${itemType}:`;
       grades[itemType].forEach((grade, index) => {
@@ -118,7 +82,6 @@ function calculateAverage() {
 }
 
 function deleteItem(itemType, index) {
-<<<<<<< HEAD
   grades[itemType].splice(index, 1); // Remove the item at the specified index
   displayGrades(); // Update the displayed grades
   calculateAverage(); // Recalculate the average
@@ -172,31 +135,4 @@ function addCategory() {
 }
 
 
-=======
-    grades[itemType].splice(index, 1); // Remove the item at the specified index
-    displayGrades(); // Update the displayed grades
-    calculateAverage(); // Recalculate the average
-    calculateAverageWithWeights();
-}
-
-
-function calculateAverageWithWeights() {
-  let totalWeightedMark = 0;
-  let totalWeight = 0;
-
-  for (const itemType in grades) {
-    if (grades.hasOwnProperty(itemType)) {
-      grades[itemType].forEach((grade) => {
-        if(!grade.dropped) {
-          totalWeightedMark += grade.mark * (grade.weight / 100);
-          totalWeight += grade.weight;
-        }
-      });
-    }
-  }
-
-  const overallAverage = totalWeight > 0 ? totalWeightedMark / totalWeight * 100 : 0;
-  document.getElementById('overallAverage').textContent = `Weighted Average: ${overallAverage.toFixed(2)}`;
-}
->>>>>>> origin/Backend-NH
 
