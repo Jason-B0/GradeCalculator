@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Jason-B0/CSCI_2690_G7_Project#readme",
   "dependencies": {
-    "rewire": "^7.0.0"
+    "rewire": "^7.0.0",
+    "uuid": "^9.0.1"
   }
 }

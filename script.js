@@ -1,3 +1,5 @@
+import { uuidv7 as uuid } from 'uuidv7';
+
 let grades = {};
 
 function addItem() {
@@ -117,7 +119,8 @@ function addCategory() {
   let categoryTemplate = document.querySelector('.grade-category'); // This should be the template you want to clone
 
   // Clone the 'TwentyTwoCharacters' section
-  let newCategory = categoryTemplate.cloneNode(true);
+  let newCategory = categoryTemplate.cloneNode( true );
+  newCategory.setAttributeNode( uuid() );
 
   // Clear any input fields in the cloned section
   let inputs = newCategory.querySelectorAll('input');
