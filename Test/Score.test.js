@@ -54,4 +54,6 @@ describe('Test script.js', function () {
         const grades = app.__get__('grades');
         assert.deepStrictEqual(grades, { homework: [] });
     });
+    
+    
 });
