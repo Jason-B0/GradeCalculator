@@ -42,7 +42,10 @@
           <input type="number" class="input-item-grade" placeholder="Grade">
           <span class="dropped-checkbox">
             <label class="switch">
-              <input type="checkbox" onchange="dropItem(this)">
+              <input type="checkbox" onchange="dropItem(
+                this.parentElement.parentElement.parentElement.parentElement.getAttribute('categoryId'), 
+                this
+                )">
               <span class="slider round"></span>
             </label>
             Dropped
@@ -51,7 +54,7 @@
       </div>
 
       <div class="add-item">
-        <button class="btn-add-item" onclick="addItem()">+ ADD ITEM</button>
+        <button class="btn-add-item" onclick="addItem(this.parentElement.parentElement.getAttribute('categoryId'))">+ ADD ITEM</button>
         <div class="category" id="category-template"></div>
       </div>
     </div>

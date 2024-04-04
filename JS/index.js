@@ -1,21 +1,16 @@
 let grades = {};
 let catInd = 0;
 
-function displayGrades() {
-  let grade = calculateGrades();
-  console.log(grade);
-  document.getElementById('Current Grade').innerHTML = grade;
-}
+
 
 function printItemList() {
   for (let itemType in grades) {
     console.log(grades[itemType]);
   }
 }
-
-function calculateGrades (){
-  let totalWeightage = 0;
-  let totalGrade = 0;
+function displayGrades ()
+{
+  let gradesAndWeightages = [];
 
   // Get all the grade categories
   const categories = document.querySelectorAll( '.grade-category' );
@@ -27,24 +22,37 @@ function calculateGrades (){
     const weightage = parseFloat( category.querySelector( '.input-weightage' ).value );
 
     // Get all the grades for this category
-    const grades = category.querySelectorAll( '.input-item-grade' );
+    const grades = [];
+    const gradeInputs = category.querySelectorAll('.input-item-grade');
+    for (let i = 0; i < gradeInputs.length; i++) {
+      const gradeInput = gradeInputs[i];
+      const grade = parseFloat(gradeInput.value);
+      const categoryBody = gradeInput.closest('.category-body');
+      if (!isNaN(grade) && !categoryBody.classList.contains('dropped')) {
+        grades.push(grade);
+      }
+    }
 
+    gradesAndWeightages.push( { grades, weightage } );
+  } );
+
+  let grade = calculateGrades( gradesAndWeightages );
+  console.log( grade );
+  document.getElementById( 'Current Grade' ).innerHTML = grade;
+}
+
+function calculateGrades ( gradesAndWeightages )
+{
+  let totalGrade = 0;
+
+  // Loop through each category
+  gradesAndWeightages.forEach( ( { grades, weightage } ) =>
+  {
     // Calculate the average grade for this category
-    let categoryGrade = 0;
-    grades.forEach( ( gradeInput ) =>
-    {
-      if (!( gradeInput.value === '' || isNaN( parseFloat( gradeInput.value ) ) ) )
-      {
-        categoryGrade += parseFloat( gradeInput.value );
-      };
-    } );
-    categoryGrade /= grades.length;
+    let categoryGrade = grades.reduce( ( a, b ) => a + b, 0 ) / grades.length;
 
     // Add the weighted grade to the total grade
     totalGrade += categoryGrade * ( weightage / 100 );
-
-    // Add the weightage to the total weightage
-    totalWeightage += weightage;
   } );
 
   // Return the total grade
@@ -72,25 +80,39 @@ function toggleDropdown ( categoryId ) {
   }
 }
 
-function addItem() {
+function addItem( categoryId ) {
   // This function will clone the category-body and append it to the category-content
-  let categoryContent = document.querySelector('.category-content');
-  let newCategoryBody = categoryContent.children[0].cloneNode(true);
+  let categoryContent = document.querySelector( `div[categoryId='${ categoryId }'] .category-content` );
+  let newCategoryBody = categoryContent.children[ 0 ].cloneNode( true );
   newCategoryBody.querySelector('.input-item-name').value = '';
   newCategoryBody.querySelector('.input-item-grade').value = '';
   newCategoryBody.querySelector('input[type="checkbox"]').checked = false;
   categoryContent.appendChild(newCategoryBody);
 }
 
-function dropItem(checkbox) {
-  let categoryBody = checkbox.closest('.category-body');
-  if (checkbox.checked) {
-    categoryBody.classList.add('dropped');
-  } else {
-    categoryBody.classList.remove('dropped');
+function dropItem ( categoryId, checkbox )
+{
+  // Select the category with the given categoryId
+  let category = document.querySelector( `div[categoryId='${ categoryId }']` );
+
+  // Get the categoryId of the checkbox's grandparent
+  let checkboxCategoryId = checkbox.parentElement.parentElement.parentElement.parentElement.getAttribute( 'categoryId' );
+
+  // Check if the checkbox is in the correct category
+  if ( categoryId === checkboxCategoryId )
+  {
+    if ( checkbox.checked )
+    {
+      checkbox.closest( '.category-body' ).classList.add( 'dropped' );
+    } else
+    {
+      checkbox.closest( '.category-body' ).classList.remove( 'dropped' );
+    }
+  } else
+  {
+    console.error( 'The item is not in the correct category' );
   }
 }
-
 function addCategory() {
   // This function will add a new 'TwentyTwoCharacters' section
   catInd++;
