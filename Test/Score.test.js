@@ -4,7 +4,7 @@ const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
 // Rewire the script.js file
-const app = rewire('./script.js');
+const app = rewire('./index.js');
 
 // Mock the document object
 const { document } = (new JSDOM('')).window;
@@ -16,7 +16,7 @@ const displayGrades = app.__get__('displayGrades');
 const calculateAverage = app.__get__('calculateAverage');
 const deleteItem = app.__get__('deleteItem');
 
-describe('Test script.js', function () {
+describe('Test index.js', function () {
     beforeEach(function () {
         // Reset the grades object before each test
         app.__set__('grades', {});
