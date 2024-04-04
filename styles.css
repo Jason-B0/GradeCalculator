@@ -1,6 +1,12 @@
 /* General styles */
 body {
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 input,
@@ -21,7 +27,8 @@ button {
 
 /* Main content styles */
 .main {
-  margin-left: 7.56%;
+  margin-left: 8%;
+  margin-right: 8%;
 }
 
 .main h1 {
@@ -37,16 +44,6 @@ button {
   margin-bottom: 20px;
 }
 
-.main-box {
-  display: flex;
-  justify-content: center;
-  /* This centers the child element horizontally */
-  margin: 0 auto;
-  /* This centers the .main-box itself if it doesn't take full width */
-  padding: 20px;
-  width: 100%;
-
-}
 
 /* Grade category styles */
 .grade-category {
@@ -94,8 +91,16 @@ button {
   margin-top: 10px;
 }
 
+.input-category,
+.input-weightage {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 5px;
+}
+
 .input-item-name,
-.input-item-grade {
+.input-item-grade,
+.display-box {
   border: 1px solid #ccc;
   border-radius: 3px;
   padding: 5px;
@@ -155,7 +160,8 @@ input:checked+.slider:before {
 
 /* Button styles */
 .btn-add-item,
-.btn-add-category {
+.btn-add-category,
+.btn-gen {
   background-color: #000;
   color: #fff;
   border: 1px solid #ccc;
@@ -170,7 +176,8 @@ input:checked+.slider:before {
 }
 
 .btn-add-item:hover,
-.btn-add-category:hover {
+.btn-add-category:hover,
+.btn-gen:hover {
   background-color: #444;
 }
 
