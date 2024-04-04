@@ -1,34 +1,5 @@
-import { uuidv7 as uuid } from 'uuidv7';
-
 let grades = {};
-
-function addItem() {
-  let itemName = document.getElementById('itemName').value;
-  let itemType = document.getElementById('itemType').value;
-  let dropItem = document.getElementById('dropItem').checked;
-  let itemMark = parseFloat(document.getElementById('itemMark').value);
-  let itemWeight = parseFloat(document.getElementById('itemWeight').value);
-
-  if (itemMark > 100) {
-    alert('Max mark is 100');
-    document.getElementById('itemMark').value = '';
-    document.getElementById('itemName').value = '';
-    document.getElementById('itemType').value = 'homework';
-    document.getElementById('itemWeight').value = '';
-    return;
-  }
-
-  if (itemName && itemType && itemWeight) {
-    if (!grades[itemType]) {
-      grades[itemType] = []
-    }
-    grades[itemType].push({ name: itemName, mark: itemMark, weight: itemWeight, dropped: dropItem });
-    displayGrades();
-    calculateAverage();
-  } else {
-    alert('Please fill in all fields correctly.');
-  }
-}
+let catInd = 0;
 
 function displayGrades() {
   let gradesDiv = document.getElementById('grades');
@@ -88,10 +59,9 @@ function deleteItem(itemType, index) {
   calculateAverage(); // Recalculate the average
 }
 
-function toggleDropdown() {
+function toggleDropdown ( categoryId ) {
   // This function will toggle the visibility of the category-content
-  let categoryContent = document.querySelector('.category-content');
-  categoryContent.style.display = categoryContent.style.display === 'none' ? 'block' : 'none';
+  let categoryContent = document.querySelector( `div[categoryId='${ categoryId }'] .category-content` );  categoryContent.style.display = categoryContent.style.display === 'none' ? 'block' : 'none';
 }
 
 function addItem() {
@@ -115,12 +85,15 @@ function dropItem(checkbox) {
 
 function addCategory() {
   // This function will add a new 'TwentyTwoCharacters' section
+  catInd++;
+
   let container = document.querySelector('.main-box'); // Assuming .main-box is where the categories should be added
   let categoryTemplate = document.querySelector('.grade-category'); // This should be the template you want to clone
 
   // Clone the 'TwentyTwoCharacters' section
+  categoryTemplate.setAttribute( 'categoryId', 'category-' + catInd );
   let newCategory = categoryTemplate.cloneNode( true );
-  newCategory.setAttributeNode( uuid() );
+  categoryTemplate.setAttribute( 'categoryId', 'category-' + 0 );
 
   // Clear any input fields in the cloned section
   let inputs = newCategory.querySelectorAll('input');

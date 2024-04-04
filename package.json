@@ -21,6 +21,8 @@
   "homepage": "https://github.com/Jason-B0/CSCI_2690_G7_Project#readme",
   "dependencies": {
     "rewire": "^7.0.0",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
   }
 }

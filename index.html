@@ -7,7 +7,7 @@
   <title>Grade Calculator</title>
   <link rel="stylesheet" href="styles.css">
 
-  <script src="script.js"></script>
+  <script src="JS/index.js"></script>
 </head>
 
 <body>
@@ -31,11 +31,11 @@
   </div>
   <div class="main-box">
     <!-- Category section -->
-    <div class="grade-category">
+    <div class="grade-category" categoryId="category-0">
       <div class="category-header">
         <span class="category-title">TwentyTwoCharacters</span>
         <span class="weightage">Weightage:</span>
-        <button class="dropdown-arrow" onclick="toggleDropdown()">▲</button>
+        <button class="dropdown-arrow" onclick="toggleDropdown(this.parentElement.parentElement.getAttribute('categoryId'))">▲</button>
       </div>
       <div class="category-content">
 
@@ -80,7 +80,6 @@
     <div class="calc">
     </div>
     <div id="average"></div>
-    <script src="script.js"></script>
 </body>
 
 </html>
