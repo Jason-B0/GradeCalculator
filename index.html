@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="JS/index.js"></script>
+</head>
+
+<body>
+  <div class="header">
+    <div class="logo">
+      <img src="./images/logo.png" alt="logo">
+    </div>
+  </div>
+  
+  <div class="main">
+    <h1>Course Grade Calculator</h1>
+    <h3>What is the use of the calculator?</h3>
+    <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa libero, nisi laboriosam dolores
+      facere consequatur odio modi quas maxime harum vitae, magnam repudiandae reprehenderit expedita sequi explicabo
+      iusto! Magni, harum.</p>
+  </div>
+
+  <div class="main-box">
+    <!-- Category section -->
+    <div class="grade-category" categoryId="category-0">
+      <div class="category-header">
+        <span class="category-title">Type:</span>
+        <span><input type="text" class="input-category" placeholder="Category Name"></span>
+        <span class="weightage">Weightage %:</span>
+        <span><input type="number" class="input-weightage" placeholder="%"></span>
+        <button class="dropdown-arrow" onclick="toggleDropdown(this.parentElement.parentElement.getAttribute('categoryId'))">▲</button>
+      </div>
+      <div class="category-content">
+
+        <div class="category-body">
+          <input type="text" class="input-item-name" placeholder="Item Name">
+          <input type="number" class="input-item-grade" placeholder="Grade">
+          <span class="dropped-checkbox">
+            <label class="switch">
+              <input type="checkbox" onchange="dropItem(
+                this.parentElement.parentElement.parentElement.parentElement.getAttribute('categoryId'), 
+                this
+                )">
+              <span class="slider round"></span>
+            </label>
+            Dropped
+          </span>
+        </div>
+      </div>
+
+      <div class="add-item">
+        <button class="btn-add-item" onclick="addItem(this.parentElement.parentElement.getAttribute('categoryId'))">+ ADD ITEM</button>
+        <div class="category" id="category-template"></div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button class="btn-add-category" onclick="addCategory()">+ ADD CATEGORY</button>
+  </div>
+
+  <div class="current-grade">
+    <h3>Grades</h3>
+    <div class="display-box" id="Current Grade">Current Grade</div>    
+    <input type="number" class="display-box" id="Desired Grade" placeholder="Desired Grade">
+    <div class="display-box" id="Max Grade Achievable">Max Grade Achievable</div>
+    <button class="btn-gen" id="calculateGrade" onclick="displayGrades()">Calculate</button>
+    <!-- Display the calculated grade -->
+    <div id="calculatedResult"></div>
+  </div>
+  </div>
+
+  <div class="grade">
+    <img src="./images/grade.webp" alt="grade">
+  </div>
+  <div class="main-box">
+    <div class="calc">
+    </div>
+    <div id="average"></div>
+</body>
+
+</html>

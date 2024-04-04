@@ -1,0 +1,26 @@
+{
+  "name": "csci2690group7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jason-B0/CSCI_2690_G7_Project.git"
+  },
+  "keywords": [
+    "CSCI"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jason-B0/CSCI_2690_G7_Project/issues"
+  },
+  "homepage": "https://github.com/Jason-B0/CSCI_2690_G7_Project#readme",
+  "dependencies": {
+    "rewire": "^7.0.0",
+    "uuid": "^9.0.1"
+  }
+}
