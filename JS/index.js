@@ -91,6 +91,17 @@ function addCategory() {
   // Clone the 'TwentyTwoCharacters' section
   categoryTemplate.setAttribute( 'categoryId', 'category-' + catInd );
   let newCategory = categoryTemplate.cloneNode( true );
+  let categoryBodies = newCategory.querySelectorAll( '.category-body' );
+
+  // If there's more than one category body, remove all but one
+  if ( categoryBodies.length > 1 )
+  {
+    for ( let i = 1; i < categoryBodies.length; i++ )
+    {
+      categoryBodies[ i ].parentNode.removeChild( categoryBodies[ i ] );
+    }
+  }
+  
   categoryTemplate.setAttribute( 'categoryId', 'category-' + 0 );
 
   // Clear any input fields in the cloned section
