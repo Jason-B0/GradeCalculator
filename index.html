@@ -32,14 +32,14 @@
         <span class="category-title">Type:</span>
         <span><input type="text" class="input-category" placeholder="Category Name"></span>
         <span class="weightage">Weightage %:</span>
-        <span><input type="text" class="input-weightage" placeholder="%"></span>
+        <span><input type="number" class="input-weightage" placeholder="%"></span>
         <button class="dropdown-arrow" onclick="toggleDropdown(this.parentElement.parentElement.getAttribute('categoryId'))">▲</button>
       </div>
       <div class="category-content">
 
         <div class="category-body">
           <input type="text" class="input-item-name" placeholder="Item Name">
-          <input type="text" class="input-item-grade" placeholder="Grade">
+          <input type="number" class="input-item-grade" placeholder="Grade">
           <span class="dropped-checkbox">
             <label class="switch">
               <input type="checkbox" onchange="dropItem(this)">
@@ -62,10 +62,10 @@
 
   <div class="current-grade">
     <h3>Grades</h3>
-    <input class="display-box" disabled="disabled" id="Current Grade" placeholder="Current Grade">
+    <div class="display-box" id="Current Grade">Current Grade</div>    
     <input type="number" class="display-box" id="Desired Grade" placeholder="Desired Grade">
-    <input type="number" disabled="disabled"class="display-box" id="Max Grade Achievable" placeholder="Max Grade Achievable">
-    <button class="btn-gen" id="calculateGrade">Calculate</button>
+    <div class="display-box" id="Max Grade Achievable">Max Grade Achievable</div>
+    <button class="btn-gen" id="calculateGrade" onclick="displayGrades()">Calculate</button>
     <!-- Display the calculated grade -->
     <div id="calculatedResult"></div>
   </div>

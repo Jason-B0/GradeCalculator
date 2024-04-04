@@ -2,32 +2,9 @@ let grades = {};
 let catInd = 0;
 
 function displayGrades() {
-  let gradesDiv = document.getElementById('grades');
-  gradesDiv.innerHTML = '';
-  for (let itemType in grades) {
-    if (grades.hasOwnProperty(itemType)) {
-      if (grades[itemType].length == 0) {
-        continue;
-      }
-      let itemTypeDiv = document.createElement('div');
-      itemTypeDiv.textContent = `${itemType}:`;
-      grades[itemType].forEach((grade, index) => {
-        let dropText = grade.dropped ? ' (Dropped)' : '';
-        let gradeElement = document.createElement('div');
-        gradeElement.textContent = `Item: ${grade.name}, Mark: ${grade.mark}${dropText}, Weight: ${grade.weight}%`;
-
-        // Create a delete button for each item
-        let deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.onclick = () => deleteItem(itemType, index); // Call deleteItem function with itemType and index
-        gradeElement.appendChild(deleteButton);
-
-        itemTypeDiv.appendChild(gradeElement);
-      });
-      gradesDiv.appendChild(itemTypeDiv);
-      printItemList();
-    }
-  }
+  let grade = calculateGrades();
+  console.log(grade);
+  document.getElementById('Current Grade').innerHTML = grade;
 }
 
 function printItemList() {
@@ -36,21 +13,42 @@ function printItemList() {
   }
 }
 
-function calculateAverage() {
-  let totalMark = 0;
-  let totalItems = 0;
-  for (let itemType in grades) {
-    if (grades.hasOwnProperty(itemType)) {
-      grades[itemType].forEach((grade) => {
-        if (!grade.dropped) {
-          totalMark += grade.mark;
-          totalItems++;
-        }
-      });
-    }
-  }
-  let averageMark = totalItems > 0 ? totalMark / totalItems : 0;
-  document.getElementById('average').textContent = `Average Mark: ${averageMark.toFixed(2)}`;
+function calculateGrades (){
+  let totalWeightage = 0;
+  let totalGrade = 0;
+
+  // Get all the grade categories
+  const categories = document.querySelectorAll( '.grade-category' );
+
+  // Loop through each category
+  categories.forEach( ( category ) =>
+  {
+    // Get the weightage for this category
+    const weightage = parseFloat( category.querySelector( '.input-weightage' ).value );
+
+    // Get all the grades for this category
+    const grades = category.querySelectorAll( '.input-item-grade' );
+
+    // Calculate the average grade for this category
+    let categoryGrade = 0;
+    grades.forEach( ( gradeInput ) =>
+    {
+      if (!( gradeInput.value === '' || isNaN( parseFloat( gradeInput.value ) ) ) )
+      {
+        categoryGrade += parseFloat( gradeInput.value );
+      };
+    } );
+    categoryGrade /= grades.length;
+
+    // Add the weighted grade to the total grade
+    totalGrade += categoryGrade * ( weightage / 100 );
+
+    // Add the weightage to the total weightage
+    totalWeightage += weightage;
+  } );
+
+  // Return the total grade
+  return totalGrade;
 }
 
 function deleteItem(itemType, index) {
