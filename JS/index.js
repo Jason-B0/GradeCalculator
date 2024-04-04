@@ -59,7 +59,17 @@ function deleteItem(itemType, index) {
 
 function toggleDropdown ( categoryId ) {
   // This function will toggle the visibility of the category-content
-  let categoryContent = document.querySelector( `div[categoryId='${ categoryId }'] .category-content` );  categoryContent.style.display = categoryContent.style.display === 'none' ? 'block' : 'none';
+  let categoryContent = document.querySelector( `div[categoryId='${ categoryId }'] .category-content` );
+  let dropdownArrow = document.querySelector( `div[categoryId='${ categoryId }'] .dropdown-arrow` );
+  if ( categoryContent.style.display === 'none' )
+  {
+    categoryContent.style.display = 'block';
+    dropdownArrow.textContent = '▲'; // Change the arrow to up
+  } else
+  {
+    categoryContent.style.display = 'none';
+    dropdownArrow.textContent = '▼'; // Change the arrow to down
+  }
 }
 
 function addItem() {
